@@ -9,7 +9,7 @@ export default function Productlist() {
     <div className='flex justify-around flex-wrap'>
       {
         heroproducts.map((item)=>(
-          <ProductCard key={item.id}title={item.title} price={item.price} img={item.image} id={item.id} catagory={item.catagory}/>
+          <ProductCard key={item.id}title={item.title} price={item.price} img={item.image} id={item.id} catagory={item.catagory as string}/>
 
         ))
       }

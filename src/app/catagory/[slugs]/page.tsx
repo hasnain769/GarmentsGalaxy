@@ -12,7 +12,7 @@ export default function Page({params}:{params:{slugs:string}}) {
   return <div className='flex justify-around flex-wrap'>
   
       {
-        result.map((item)=>(
+        result.map((item , key=item.id)=>(
           <ProductCard key={item.id}title={item.title} price={item.price} img={item.image} id={item.id} catagory={ item.catagory as string}/>
 
         ))

@@ -1,19 +1,17 @@
 "use client"
-
-
-
-
+"use client"
 import React, { useState , useEffect} from 'react';
 import Image from 'next/image';
 import logo from '/public/GarmentGalaxy1.png';
 import Link from 'next/link';
 import { ShoppingBag, AlignJustify, X } from 'lucide-react';
-import UseCart from '@/app/store/page';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 const Header = () => {
-  const cartItems = UseCart((state) => state.cartValue);
-  const [value,setvalue]= useState(0)
-  useEffect(()=>setvalue(cartItems))
+  const value :any =useSelector((state :RootState)=>state.cart)
+  
+  
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -54,7 +52,7 @@ const Header = () => {
         <Link href="/cart">
           <div className="    rounded-full p-2 flex flex-col mt-[-4px]">
             <ShoppingBag className="w-10 h-9 " /> 
-            <p className='ml-4 text-white font-bold mt-[-16px]   text-[1rem] lg:px-[0.6rem] lg:py-[0.01rem] p-[0.2rem] px-2 bg-emerald-400	 rounded-full'>{value}</p>
+            <p className='ml-4 text-white font-bold mt-[-16px]   text-[1rem] lg:px-[0.6rem] lg:py-[0.01rem] p-[0.2rem] px-2 bg-emerald-400	 rounded-full'>{value.length}</p>
           </div>
           </Link>
         </li>

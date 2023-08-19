@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Header from '@/components/layout/Hearder'
 import { Footer } from '@/components/layout/Footer'
+import { ReduxProvider } from '@/store/Provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,16 +17,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
+   return (
     <html lang="en">
       <body className="">
+        
+        <main className='px-4 flex flex-col flex-grow'>
+        <ReduxProvider>
         <Header></Header>
         <div className='flex flex-col  h-screen'>
-        <main className='px-4 flex flex-col flex-grow'>
            {children}
+           <Footer />
+       </div> 
+           </ReduxProvider> 
         </main>
-       <Footer />
-       </div>
+       
         </body>
     </html>
   )
