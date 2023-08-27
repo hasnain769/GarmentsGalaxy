@@ -3,7 +3,7 @@ import React from "react";
 import logo from "/public/GarmentGalaxy1.png";
 import Link from "next/link";
 import { Facebook ,Instagram ,Bird } from 'lucide-react';
-
+//footer
 export const Footer = () => {
   return (
     <footer className="pt-32 flex flex-col flex-wrap">
